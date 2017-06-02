@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
-import ApolloClient, { createNetworkInterface } from 'apollo-client';
-import { ApolloProvider } from 'react-apollo';
+import React, { Component } from 'react'
+import ApolloClient, { createNetworkInterface } from 'apollo-client'
+import { ApolloProvider } from 'react-apollo'
+import RaisedButton from 'material-ui/RaisedButton'
 
-import '../../App.css';
+import '../../App.css'
 
-import PostList from './PostList';
+import CodigosList from './codigos-list'
 
 class Codigos extends Component {
-  constructor(...args) {
-    super(...args);
+  constructor (...args) {
+    super(...args)
 
-    const networkInterface = createNetworkInterface('https://ddm-api.herokuapp.com/graphql');
+    const networkInterface = createNetworkInterface('https://ddm-api.herokuapp.com/graphql')
     this.client = new ApolloClient({
       networkInterface,
       dataIdFromObject: r => r.id,
-    });
+    })
   }
-  render() {
+
+  render () {
     return (
       <ApolloProvider client={this.client}>
-        <PostList />
+        <div>
+          <RaisedButton label="Default"/>
+          <CodigosList />
+        </div>
       </ApolloProvider>
-    );
+    )
   }
 }
 
-export default Codigos;
+export default Codigos
