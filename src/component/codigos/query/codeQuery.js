@@ -8,4 +8,16 @@ query code($id: String) {
     code
   }
 }
+
+
 `
+/*
+
+mutation createCode($title: String!, $description: String, $code: String!){
+  addCode(title:$title, description:$description,code: $code) {
+    id
+    title
+    code
+    description
+  }
+}*/

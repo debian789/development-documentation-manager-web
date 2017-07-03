@@ -1,12 +1,4 @@
 import React, { Component } from 'react'
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
 
@@ -23,30 +15,27 @@ export default class CodeList extends Component {
   render () {
     return (
       <Grid fluid>
-        <Row>
-          <Col xs={12}>
-            <Table >
-              <TableHeader>
-                <TableRow>
-                  <TableHeaderColumn>ID</TableHeaderColumn>
-                  <TableHeaderColumn>Title</TableHeaderColumn>
-                  <TableHeaderColumn>Description</TableHeaderColumn>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {this.state.codes.sort((x, y) => y.votes - x.votes).map(code =>
-                  <TableRow key={code.id}>
-                    <TableRowColumn><Link to={{
-                      pathname: '/codigos/' + code.id,
-                      state: {
-                        code: code
-                      }
-                    }}>Codigo detalle</Link>{code.title}</TableRowColumn>
-                    <TableRowColumn>{code.description}</TableRowColumn>
-                  </TableRow>
-                )}
-              </TableBody>
-            </Table>
+        <Row center="xs">
+          <Col xs={8}>
+            {this.state.codes.map(code =>
+              <Row start="xs" key={code.id}>
+                <Col md={8}>
+                  <Link to={{
+                    pathname: '/codigos/' + code.id,
+                    state: {
+                      code: code
+                    }
+                  }}>
+
+                    <h3>{code.title}</h3>
+                  </Link>
+                  <p> {code.description}</p>
+                </Col>
+                <Col md={4}>
+                  <h3>Fecha de creacion</h3>
+                </Col>
+              </Row>
+            )}
           </Col>
         </Row>
       </Grid>
