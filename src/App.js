@@ -4,25 +4,28 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import Codigos from './component/codigos/codigos'
+import Codigos from './component/codigos/index'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Menu from './component/home/menu'
-
+import CodigoDetail from './component/codigos/components/codigoDeail'
 const Home = () => (
   <div>
-    <h2>Home</h2>
+    <h2>Codigos</h2>
     <Codigos/>
   </div>
 )
 
-const About = () => (
+/*
+const Codigos = () => (
   <div>
-    <h2>About</h2>
+    <h2>Codigos</h2>
     <Codigos/>
   </div>
 )
 
-const Topic = ({match}) => (
+*/
+
+const Commands = ({match}) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
@@ -49,7 +52,7 @@ const Topics = ({match}) => (
       </li>
     </ul>
 
-    <Route path={`${match.url}/:topicId`} component={Topic}/>
+    <Route path={`${match.url}/:topicId`} component={Commands}/>
     <Route exact path={match.url} render={() => (
       <h3>Please select a topic.</h3>
     )}/>
@@ -63,14 +66,15 @@ const BasicExample = () => (
         <Menu/>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/topics">Topics</Link></li>
+          <li><Link to="/codigos">Codigos</Link></li>
+          <li><Link to="/codigos/1234">Codigo detalle</Link></li>
         </ul>
 
         <hr/>
 
         <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
+        <Route  exact path="/codigos" component={Codigos}/>
+        <Route path="/codigos/:idCodigo" component={CodigoDetail}/>
         <Route path="/topics" component={Topics}/>
       </div>
     </Router>
