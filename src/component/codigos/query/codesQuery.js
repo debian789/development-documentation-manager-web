@@ -1,4 +1,5 @@
-export default `
+import { gql } from 'react-apollo'
+export default gql`
   query {
     codes {
       id

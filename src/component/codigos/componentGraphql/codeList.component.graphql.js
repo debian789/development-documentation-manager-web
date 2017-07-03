@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { ApolloProvider } from 'react-apollo'
-import conectionGraphql from '../../commons/graphql/connections'
-import '../../App.css'
-import CodeList from './components/codeList'
+import conectionGraphql from '../../../commons/graphql/connections'
+import '../../../App.css'
+import CodeList from '../componentsWithData/codeListWithData'
 
-class Codigos extends Component {
+class CodeListGraphql extends Component {
   constructor (...args) {
     super(...args)
     this.client = conectionGraphql()
@@ -19,4 +19,4 @@ class Codigos extends Component {
   }
 }
 
-export default Codigos
+export default CodeListGraphql

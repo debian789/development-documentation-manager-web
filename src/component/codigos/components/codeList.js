@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
   Table,
   TableBody,
@@ -9,19 +9,17 @@ import {
 } from 'material-ui/Table'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
-import { graphql } from 'react-apollo';
-import CodesQuery from '../query/codesQuery'
 
-
-@graphql(CodesQuery)
 export default class CodeList extends Component {
   constructor (props) {
     super(props)
+
     this.state = {
       codes: this.props.codes
     }
 
   }
+
   render () {
     return (
       <Grid fluid>

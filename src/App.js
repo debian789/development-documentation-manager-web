@@ -4,22 +4,25 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import Codigos from './component/codigos/index'
+import CodeListGraphql from './component/codigos/componentGraphql/codeList.component.graphql'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Menu from './component/home/menu'
-import CodigoDetail from './component/codigos/components/codigoDeail'
+// import CodigoDetail from './component/codigos/components/codigoDetail'
+import CodigoDetail from './component/codigos/componentGraphql/codeDetail.component.graphql'
+
+
 const Home = () => (
   <div>
     <h2>Codigos</h2>
-    <Codigos/>
+    <CodeListGraphql/>
   </div>
 )
 
 /*
-const Codigos = () => (
+const CodeListGraphql = () => (
   <div>
-    <h2>Codigos</h2>
-    <Codigos/>
+    <h2>CodeListGraphql</h2>
+    <CodeListGraphql/>
   </div>
 )
 
@@ -73,7 +76,7 @@ const BasicExample = () => (
         <hr/>
 
         <Route exact path="/" component={Home}/>
-        <Route  exact path="/codigos" component={Codigos}/>
+        <Route  exact path="/codigos" component={CodeListGraphql}/>
         <Route path="/codigos/:idCodigo" component={CodigoDetail}/>
         <Route path="/topics" component={Topics}/>
       </div>
